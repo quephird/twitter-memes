@@ -7,6 +7,7 @@
                  [ring/ring-jetty-adapter "1.4.0"]
                  [ring/ring-json "0.4.0"]]
   :plugins [[lein-ring "0.9.7"]]
+  :main twitter-memes.core
   :ring {:handler twitter-memes.handler/app}
   :profiles
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
