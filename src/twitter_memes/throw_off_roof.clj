@@ -31,12 +31,7 @@
      "┃┃┃┃┃┃ %s"
      "┻┻┻┻┻┻"]))
 
- ; TODO: * Add options for 
- ;           * crocodiles 🐊🐊🐊🐊
- ;           * snakes 🐍🐍🐍🐍
- ;           * ocean 🌊🌊🌊🌊
- ;           * Sarlacc ╲╲\\||//╱╱
- ;       * Splitting of object text across
+ ; TODO: * Splitting of object text across
  ;         multiple lines
  (def possible-targets
    {"fire" "🔥🔥🔥🔥"
