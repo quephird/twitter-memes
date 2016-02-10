@@ -28,8 +28,23 @@
      "┓┏┓┏┓┃"
      "┛┗┛┗┛┃"
      "┓┏┓┏┓┃"
-     "┃┃┃┃┃┃"
+     "┃┃┃┃┃┃ %s"
      "┻┻┻┻┻┻"]))
 
-(defn throw-object-text [object]
-  (format template (flip-object object)))
+ ; TODO: * Add options for 
+ ;           * crocodiles 🐊🐊🐊🐊
+ ;           * snakes 🐍🐍🐍🐍
+ ;           * ocean 🌊🌊🌊🌊
+ ;           * Sarlacc ╲╲\\||//╱╱
+ ;       * Splitting of object text across
+ ;         multiple lines
+ (def possible-targets
+   {"fire" "🔥🔥🔥🔥"
+    "snakes" "🐍🐍🐍🐍"
+    "crocodiles" "🐊🐊🐊🐊"
+    "ocean" "🌊🌊🌊🌊"
+    "sarlacc" "╲╲\\\\||//╱╱"})
+ 
+(defn throw-object-text [object into]
+  (let [target (get-in possible-targets [into] "")]
+    (format template (flip-object object) target)))
