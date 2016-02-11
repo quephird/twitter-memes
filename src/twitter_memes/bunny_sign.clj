@@ -15,18 +15,18 @@
    "(•ㅅ•) ||"
    "/ 　 づ"])
 
-(defn pad-word [word max-length]
-  (let [length (count word)
+(defn pad-line [line max-length]
+  (let [length (count line)
         spaces (inc (Math/ceil (* 0.5 (- max-length length))))
         pad    (apply str (repeat spaces " "))]
-    (str "|" pad word pad "|")))
+    (str "|" pad line pad "|")))
 
 (defn bunnysign-text [text]
-  (let [words      (s/split text #" ")
-        max-length (apply max (map count words))
+  (let [lines      (s/split text #"\|")
+        max-length (apply max (map count lines))
         sign-width (Math/floor (* 0.7 max-length))
         top        [(apply str (concat [\|] (repeat sign-width \￣) [\|]))]
         bottom     [(apply str (concat [\|] (repeat sign-width \＿) [\|]))]
-        body       (map #(pad-word % max-length) words)
+        body       (map #(pad-line % max-length) lines)
         ]
     (s/join "\n" (concat top body bottom template))))
