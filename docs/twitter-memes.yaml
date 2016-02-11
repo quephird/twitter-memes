@@ -1,0 +1,35 @@
+---
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Twitter memes API
+host: twitter-memes.herokuapp.com
+paths:
+  /throw/{object}:
+    get:
+      parameters:
+        - name: object
+          in: path
+          description: Represents the thing you want to throw off the roof
+          required: true
+          type: string
+        - name: into
+          in: query
+          description: Represents the thing(s) you want to throw into
+          required: false
+          type: string
+          enum: ["crocodiles", "snakes", "fire", "sarlacc"]
+      responses:
+        200:
+          description: OK
+  /bunnysign/{text}:
+    get:
+      parameters:
+        - name: text
+          in: path
+          description: Represents the thing you want on the sign; use '|' to delimit lines
+          required: true
+          type: string
+      responses:
+        200:
+          description: OK

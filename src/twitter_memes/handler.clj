@@ -23,7 +23,10 @@
       (u/charset "UTF-8"))))
 
 (defroutes app-routes
-  (GET "/" [] "I'm alive!")
+  (GET "/" []
+    (u/resource-response "index.html" {:root "public"}))
+  (GET "/index.html" []
+    (u/resource-response "index.html" {:root "public"}))
   (context "/throw" [] 
     (defroutes throw-routes
       (context "/:object" [object]
